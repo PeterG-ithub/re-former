@@ -1,5 +1,5 @@
-<form accept-charset="UTF-8" action="/users" method="post">
-  <!--<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"> -->
+<!-- <form accept-charset="UTF-8" action="/users" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label for="username">Username</label>
   <input type="text" name="user[username]" required>
   <label for="email">Email</label>
@@ -7,4 +7,14 @@
   <label for="password">Password</label>
   <input type="password" name="user[password]" required>
   <input type="submit">
-</form>
+</form> -->
+
+<%= form_with model: @user do |form| %>
+<%= label(:user, :username)%>
+<%= form.text_field :username %>
+<%= label(:user, :email)%>
+<%= form.email_field :email %>
+<%= label(:user, :password)%>
+<%= form.password_field :password %>
+<%= form.submit %>
+<%end%>
